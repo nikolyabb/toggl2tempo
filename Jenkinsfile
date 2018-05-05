@@ -19,9 +19,9 @@ node (builderNode) {
         dir (srcDir) {
             nodejs('nodejs-10') { // from Jenkins Tool 'nodejs-10'
                 dir ('WebHost'){
-                    sh "npm install -g webpack"
-                    sh "webpack --config webpack.config.vendor.js"
-                    sh "dotnet run"
+                    sh "npm install webpack"
+                    sh "node node_modules/webpack/bin/webpack.js --config webpack.config.vendor.js"
+                    //sh "dotnet run"
                 }
             }
         }
